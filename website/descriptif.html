@@ -1,0 +1,168 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>YouZou</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="style.css" />
+		<link rel="icon" href="favicon.ico"/>
+	</head>
+	<body class="subpage">
+
+    <!-- Header -->
+			<header id="header">
+				<div class="inner">
+          <a href="http://www4.utc.fr/~nf28/vitrine.php" class="logo">NF28</a>
+						<a href="index.html">Zeste</a>
+            <a href="descriptif.html">Jus</a>
+				</div>
+			</header>
+
+    <!-- Title -->
+      <section id="main" class="wrapper">
+        <div class="inner">
+          <header class="align-center">
+						<img src="logo.png" title="UTC Cosmique" alt="Logo UTC" width="100" height="100"/>
+            <h2>Descriptif de l'application</h2>
+            <p>Youzou, le réseau social acide.</p>
+          </header>
+
+    <!-- Content -->
+      <div class="row">
+        <div class="6u 12u$(small)">
+          <h3>Idée de base</h3>
+          <p>L'idée de cette application est née d'un simple constat : il nous est actuellement toujours difficile d'organiser un évènement pour un certains groupes d'amis à un lieu et à une heure précise. L'objectif était donc la mise en place d'un réseau social dédié principalement à l'organisation de ces évènements propres à des groupes, mais pour cela, la communication de certaines informations entre les utilisateurs était nécessaire. L'information de l'heure n'était pas la difficulté du problème puisque sa communication est relativement simple et universelle. Ce qui posait véritbalement problème, c'était le lieu. En effet, contrairement à l'heure dont l'interprétation est immédiate quelque soit le format, l'identification d'un lieu via une adresse ou des coordonnées géographiques est rarement direct pour l'utilisateur. Pour lever cette difficulté de compréhension d'un lieu, l'utilisation d'une carte se révèle nécessaire. Ainsi l'application a été décidée comme centrée et construite autour de cartes géographiques, donnant alors naissance à un une application mêlant cartes et réseau social.</p>
+				</div>
+        <div class="6u$ 12u$(small)">
+					<h3>Technologies utilisées</h3>
+						<p>Nous avions soif de découvrir de nouvelles technologies et d'élargir nos compétences en développement mobile à travers ce projet.
+							Après quelques petites recherches, notre choix s'est arrêté sur le framework React Native, développé par Facebook en 2015. Couplé à une solution expo, ce choix nous a procuré une grande agilité de développement, nous permettant de tester notre application directement sur nos téléphones tout au long de son développement, aussi bien sous Android que sous IOS.
+							Deux APIs nous ont également été nécessaires pour mettre sur pied ce projet: </p>
+							L' API Google Place
+									<ul>
+										<li>Autocomplétion pour la recherche de lieux d'intérêts et d'addresse spécifique</li>
+										<li>Linkage des composants MapView avec le résultat de la recherche </li>
+									</ul>
+							L'API Facebook
+										<ul>
+											<li>Récupération de la photo de profil de l'utilisateur</li>
+											<li>Récupération des évènements Facebook auxquels l'utilisateurs participaient</li>
+										</ul>
+
+						</p>
+        </div>
+				<h3>Place dans les stores</h3>
+				<p>Youzou se démarque des célèbres réseaux sociaux par sa construction autour d'une carte. Plus que ça, une étude du marché actuelle nous a montré qu'aucune application ne revendicait une utilité semblable à notre application. Notre application est donc désormais disponible dans la PlayStore d'Android sans aucune réélle application concurrente. Nous avons choisi, pour le moment, de l'exporter vers la PlayStore et non vers les stores d'application des autres principaux sytèmes d'exploitation. En effet, la license développer IOS permettant de proposer des applications sur l'AppStore s'est révèlé être bien trop cher pour notre projet. Quant à la store propre aux Windows Phone, nous n'avons pas encore trouvé de moyen depuis React Native et Expo pour y exporter notre application. Cela reste relativement négligeable puisque ces 2 autres stores occupent une plus petite part du marché que la PlayStore.</p>
+      </div>
+
+      <!-- Architecture -->
+        <h3>Architecture</h3>
+        <p> Cette rubrique à pour objectif de vous familiariser avec les concepts et composants centraux autour desquels s'articule notre application</p>
+        <div class="row">
+          <div class="6u 12u$(small)">
+            <div class="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Page</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>GlobalMap</td>
+                    <td>Map propre à l'utilisateur permettant de visualiser l'activité de ses groupes</td>
+                  </tr>
+                  <tr>
+                    <td>FriendMap</td>
+                    <td>Map propre à un groupe permettant de visualiser et d'organiser l'activité de ce groupe.</td>
+                  </tr>
+                  <tr>
+                    <td>CréationQG</td>
+                    <td>Form permettant la création et le paramétrage d'un groupe et de son QG à des coordonnées précises.</td>
+                  </tr>
+                  <tr>
+                    <td>Lieu d'interêt</td>
+                    <td>Form permettant de modifier le QG ou de créer un évènement pour un groupe.</td>
+                  </tr>
+                  <tr>
+                    <td>Groupes</td>
+                    <td>Liste permettant de visualiser les différents groupes et conversations de l'utilisateur.</td>
+                  </tr>
+                  <tr>
+                    <td>Notifications</td>
+                    <td>Liste permettant de visualiser les différentes notifications propres à un groupe.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="6u$ 12u$(small)">
+            <img src="screen3.jpg" title="Touuuuuuuuuuuuuuurne !" alt="Maquette" width="100%" height="100%" />
+          </div>
+        </div>
+
+      <!-- Fonction -->
+        <h3>Fonctionnalités</h3>
+        <p>Les fonctionnalités proposées par YouZou se décomposent en deux grandes parties selon la map courante sur laquelle l'utilisateur se trouve.</p>
+				<ul>
+					<li>La globale map doit permettre à l'utilisateur d'avoir une vue complète de ses groupes et de la localisation des évènements auxquels il participe.
+						Cette map constitue donc une interface de gestion de groupes. C'est depuis celle-ci que l'utilisateur va pouvoir créer un nouveau groupe en définissant un nouveau QG.
+					</br>Pour générer un nouveau QG l'utilisateur peut effectuer la recherche d'un lieu spécifique via la barre de recherche située en bas de l'écran.
+				</br>La map sera automatiquement dirigée sur le lieu de la recherche et un marker sera directement apparant pour symboliser la position de ce lieu.
+						L'utilisateur n'aura plus qu'à appuyer sur ce marker pour faire apparaitre la vue de création d'un nouveau QG.
+						Un deuxième scenario de création de QG est également envisageable. Un simple appuie long à n'importe quel endroit de la map globale fait apparaitre un nouveau marker. En appuyant sur ce marker, un message d'invitation à la création d'un nouveau QG est alors affiché sur la carte.
+					</li>
+				</br>
+					<li>La Friend Map permet à l'utilisateur de filtrer l'affichage des évènements relatifs à un groupe unique. C'est depuis cette map que l'utilisateur pourra définir de nouveaux évènements.
+						À la manière de la création des QGs, l'utilisateur pourra générer un nouvel évènement par un appuie long sur n'importe quel endroit de la Friend Map ou en utilisant la barre de recherche. Le choix d'une de ses deux méthode fera apparaitre un nouveau marqueur à l'emplacement souhaité.
+						L'appui sur ce marker affichera un message sur la carte, invitant l'utilisateur à créer un nouvel évènement ou à redéfinir le QG du groupe à cet emplacement. En appuyant sur ce message, la vue de formulaire de création d'évènement sera alors chargée.
+					  </li>
+				</ul>
+
+      <!-- Navigation -->
+        <h3>Navigation</h3>
+        <p>La navigation au sein de l'application se structure selon deux onglets. Au démarage, l'application se charge automatiquement sur la map globale, permettant ainsi à l'utilisateur d'avoir une visions d'ensemble
+				 de ses différents groupes (via les icônes de QG ) et des différents évènements auxquels il participe (grâce aux icônes d'évènements). Différentes intéractions sont rendues possible depuis cette première map, comme décrit précédemment.
+				 La création d'un nouveau groupe fait naviguer l'application sur une nouvelle vue de création de groupe.
+				 Pour afficher plus spécifiquement la carte relative aux activités d'un groupe, deux options de navigation sont possibles:
+				 <ul>
+					 <li>Une navigation classique via la barre de navigation située en bas de la vue principale. L'appui sur l'onglet de droite de cette barre de navigation permet d'afficher la liste des différents groupes auxquels appartient l'utilisateur. Un appuie sur l'icône du groupe redirigera l'utilisateur sur la carte de ce groupe. </li>
+					  </br>
+						<li>Afin de proposer une navigation plus fluide et instinctive, il est également possible d'accéder à la map spécifique d'un groupe depuis la map globale par simple appuie sur la description du QG de ce groupe </li>
+				 </ul>
+			 </p>
+
+      <!-- Interactivité -->
+        <h3>Interactivité</h3>
+        <p>Un des objectifs majeur de l'uv NF28 était de nous faire prendre conscience de l'importance des intéractions existantes entre un système et son utilisateur.
+				</br>	A travers Youzou, nous avons souhaité proposer une nouvelle manière d'organiser des évènements ou de partager des lieux avec ses amis en centralisant les actions de l'utilisateur autour d'une carte interactive.
+				</br>
+				</br>
+			Cette carte devait entre autre lui permettre de:
+				<ul>
+					<li>De visualiser simplement l'ensemble des évènements auxquels il participait via un système d'icône postées sur la carte et dont la couleur s'intensifiait à mesure que l'évènement était proche temporellement. </li>
+					<li>De créer un nouvel évènement et ce, de manière simple et intuitive, par un système d'appui long n'importe où sur la carte </li>
+					<li>De centraliser la gestion de ses groupes d'amis grâce à l'exloitation des QG, représentés directement sur la carte par des icônes de chateaux.</li>
+					<li>De rechercher efficacement un lieu spécifique pour y créer un nouvelle évènement ou y établir un nouveau QG de groupe grâce à une barre de recherche avec système d'autocomplétion via l'API GooglePlace.  </li>
+				</ul>
+				</p>
+
+		</div>
+	</section>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<div class="flex">
+						<div class="copyright">
+							&copy; YouZou.
+						</div>
+						<ul class="icons">
+							<li><a href="https://www.utc.fr/"><img src="logoutc.png" alt="Logo UTC" title="UTC de Compiègne" width="150" height="50"/></a></li>
+						</ul>
+					</div>
+				</div>
+			</footer>
+	</body>
+</html>
