@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyleSheet, Image} from 'react-native'
 import {Icon} from 'react-native-elements'
-import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator } from 'react-navigation'
+import { createStackNavigator, createAppContainer, createBottomTabNavigator, createSwitchNavigator } from '@react-navigation/native'
 import GlobalMap from '../components/GlobalMap'
 import FriendMap from '../components/FriendMap'
 import Groups from '../components/Groups'
