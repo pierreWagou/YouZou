@@ -11,7 +11,7 @@
     },
     "android": {
       "package": "coloc.youzou",
-      "versionCode": 2,
+      "versionCode": 2
     },
     "platforms": [
       "ios",
