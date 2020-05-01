@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapView} from 'expo';
+import MapView from 'react-native-maps'
+import { Marker, Callout} from 'react-native-maps';
 import {Text, View, TextInput, StyleSheet, Image, TouchableHighlight} from 'react-native';
 import {Icon} from 'react-native-elements';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
@@ -12,7 +13,7 @@ import contacts from '../helpers/contactsData'
 import FbInfos from './FbInfos'
 import FbEventsCallout from './FbEventsCallout'
 
-export default class FriendMap extends React.Component {
+export default class GlobalMap extends React.Component {
 
 constructor(props) {
   super(props)
@@ -89,17 +90,17 @@ iconOpacity(date) {
 renderMyPosition() {
   let Image_Http_URL ={ uri: this.addUserPhoto()}
   return (
-    <MapView.Marker
+    <Marker
       coordinate={this.state.myPosition}
       onCalloutPress={() => this.addFbEvents()}
       title={"mwa"}>
       <TouchableHighlight style={[styles.profileImgContainer, { borderColor: 'black', borderWidth:1 }]}>
         <Image source={Image_Http_URL} style={styles.profileImg} />
       </TouchableHighlight>
-      <MapView.Callout>
+      <Callout>
         <FbEventsCallout/>
-      </MapView.Callout>
-     </MapView.Marker>
+      </Callout>
+     </Marker>
    )
  }
 
@@ -107,7 +108,7 @@ renderQG() {
   const qgs = []
   for(let i=0;i<this.state.contact.length;i++) {
     qgs.push(
-      <MapView.Marker
+      <Marker
         key={i}
         coordinate={this.state.contact[i].qg.coord}
         title={this.state.contact[i].qg.nom}
@@ -119,10 +120,10 @@ renderQG() {
           type='material-community'
           color={this.state.contact[i].color}/>
         </View>
-        <MapView.Callout>
+        <Callout>
           <GlobalQGCallout qg={this.state.contact[i].qg.nom} nom={this.state.contact[i].nom} color={this.state.contact[i].color}/>
-        </MapView.Callout>
-      </MapView.Marker>
+        </Callout>
+      </Marker>
     )
   }
   return qgs
@@ -138,7 +139,7 @@ renderEvents() {
       let difDay = Math.abs(dif / 86400000)
       if(difDay<31) {
         events.push(
-          <MapView.Marker
+          <Marker
             key={this.state.contact[i].events[j].nom}
             coordinate={this.state.contact[i].events[j].coord}
             title={this.state.contact[i].events[j].nom}
@@ -150,14 +151,14 @@ renderEvents() {
               type='material'
               color={this.state.contact[i].color}/>
             </View>
-            <MapView.Callout>
+            <Callout>
               <EventDetails
               nom={this.state.contact[i].events[j].nom}
               texte={this.state.contact[i].events[j].texte}
               date={this.state.contact[i].events[j].date}
               color={this.state.contact[i].color}/>
-            </MapView.Callout>
-          </MapView.Marker>
+            </Callout>
+          </Marker>
         )
       }
     }
@@ -168,7 +169,7 @@ renderEvents() {
     let difDay = Math.abs(dif / 86400000)
     if(difDay<31) {
       events.push(
-        <MapView.Marker
+        <Marker
           key={this.state.fbEvents[i].name}
           coordinate={{latitude: this.state.fbEvents[i].place.location.latitude, longitude: this.state.fbEvents[i].place.location.longitude}}
           title={this.state.fbEvents[i].name}
@@ -180,10 +181,10 @@ renderEvents() {
             type='material'
             color='black'/>
           </View>
-          <MapView.Callout>
+          <Callout>
             <EventDetails nom={this.state.fbEvents[i].name} texte={this.state.fbEvents[i].description} date={this.state.fbEvents[i].start_time}/>
-          </MapView.Callout>
-        </MapView.Marker>
+          </Callout>
+        </Marker>
       )
     }
   }
@@ -193,16 +194,16 @@ renderEvents() {
 renderMarker() {
   if(this.state.marker!=undefined) {
     return (
-      <MapView.Marker
+      <Marker
         coordinate={this.state.marker}
         title={"title"}
         description={"description"}
         pinColor={'#000000'}
         onCalloutPress={() => this.displayCreationContact()}>
-        <MapView.Callout>
+        <Callout>
           <NewQGCallout/>
-        </MapView.Callout>
-      </MapView.Marker>
+        </Callout>
+      </Marker>
     )
   }
 }
