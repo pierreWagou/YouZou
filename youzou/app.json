@@ -5,8 +5,9 @@
     "version": "2.0.0",
     "icon": "./images/yuzus.png",
     "privacy": "public",
+    "sdkVersion": "32.0.0",
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "youzouColoc"
     },
     "android": {
       "package": "coloc.youzou",
@@ -28,6 +29,9 @@
     "assetBundlePatterns": [
       "**/*"
     ],
+    "ios": {
+      "supportsTablet": true
+    },
     "description": ""
   }
 }
